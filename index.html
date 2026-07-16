@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D 点球模拟器</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="sim-stage" aria-label="3D 点球模拟场景">
+        <div id="scene" class="scene"></div>
+        <div class="scoreboard" aria-live="polite">
+          <span id="status">调整角度和力度，准备射门</span>
+          <strong id="score">进球 0 / 射门 0</strong>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-label="射门控制">
+        <header>
+          <h1>点球模拟器</h1>
+          <p>3D 视角、刚体碰撞、空气阻力、旋转弧线和门将扑救。</p>
+        </header>
+
+        <div class="control-grid">
+          <label>
+            <span>方向</span>
+            <input id="aim" type="range" min="-100" max="100" value="0" />
+            <output id="aimValue">0</output>
+          </label>
+
+          <label>
+            <span>高度</span>
+            <input id="height" type="range" min="0" max="100" value="48" />
+            <output id="heightValue">48</output>
+          </label>
+
+          <label>
+            <span>力度</span>
+            <input id="power" type="range" min="48" max="100" value="78" />
+            <output id="powerValue">78%</output>
+          </label>
+
+          <label>
+            <span>弧线</span>
+            <input id="curl" type="range" min="-60" max="60" value="0" />
+            <output id="curlValue">0</output>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="shoot" type="button">射门</button>
+          <button id="reset" type="button" class="secondary">重置</button>
+        </div>
+
+        <div class="readout">
+          <div>
+            <span>球速</span>
+            <strong id="speed">0 km/h</strong>
+          </div>
+          <div>
+            <span>落点</span>
+            <strong id="target">正中</strong>
+          </div>
+          <div>
+            <span>门将</span>
+            <strong id="keeper">待命</strong>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/",
+          "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"
+        }
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
