@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "3D点球模拟器",
+    "navigationBarBackgroundColor": "#101410",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#101410"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
